@@ -6,21 +6,26 @@ metadata:
 data:
   krakend.json: |
     {
-      "version": 2,
-      "name": "Krakend Example",
-      "extra_config": {},
-      "endpoints": [
-        {
-          "endpoint": "/hello",
-          "method": "GET",
-          "backend": [
+        "$schema": "https://www.krakend.io/schema/krakend.json",
+        "version": 3,
+        "name": "APIGateway",
+        "timeout": "3000ms",
+        "cache_ttl": "300s",
+        "output_encoding": "no-op",
+        "port": 8001,
+        "endpoints": [
             {
-              "url_pattern": "/",
-              "host": [
-                "http://example.com"
-              ]
+                "endpoint": "/api/posts",
+                "method": "GET",
+                "output_encoding": "json",
+                "backend": [
+                    {
+                        "url_pattern": "/posts/1",
+                        "host": [
+                            "https://jsonplaceholder.typicode.com/"
+                        ]
+                    }
+                ]
             }
-          ]
-        }
-      ]
+        ]
     }
