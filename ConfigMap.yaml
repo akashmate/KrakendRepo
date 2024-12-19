@@ -35,7 +35,7 @@ data:
                         "host": [
                             "https://api.restful-api.dev"
                         ],
-                        "url_pattern": "/objects",
+                        "url_pattern": "/objects/7",
                         "mapping": {},
                         "is_collection": false,
                         "encoding": "json",
