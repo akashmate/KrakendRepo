@@ -12,6 +12,8 @@ spec:
       app: krakend
   template:
     metadata:
+      annotations:
+        configmap.reloader.stakater.com/reload: "krakend-config"
       labels:
         app: krakend
     spec:
