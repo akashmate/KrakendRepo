@@ -28,13 +28,12 @@ data:
             },
             {
                 "endpoint": "/SK1",
-                "method": "POST",
+                "method": "GET",
                 "backend": [
                     {
                         "host": [
                             "https://api.restful-api.dev"
                         ],
-                        "method": "GET",
                         "url_pattern": "/objects/7",
                         "mapping": {},
                         "is_collection": false,
