@@ -25,27 +25,6 @@ data:
                         ]
                     }
                 ]
-            },
-            {
-                "endpoint": "/SK1",
-                "method": "GET",
-                "backend": [
-                    {
-                        "host": [
-                            "https://api.restful-api.dev"
-                        ],
-                        "method": "GET",
-                        "url_pattern": "/objects/7",
-                        "mapping": {},
-                        "is_collection": false,
-                        "encoding": "json",
-                        "extra_config": {
-                            "proxy": {}
-                        },
-                        "disable_host_sanitize": true
-                    }
-                ],
-                "extra_config": {}
             }
         ]
     }
