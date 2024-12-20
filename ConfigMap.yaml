@@ -5,6 +5,7 @@ metadata:
   namespace: krakend-namespace
 data:
   krakend.json: |
+E:/KrakenD2/KrakendRepo/ConfigMap.yaml
     {
         "$schema": "https://www.krakend.io/schema/krakend.json",
         "version": 3,
