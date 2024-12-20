@@ -5,22 +5,40 @@ metadata:
   namespace: krakend-namespace
 data:
   krakend.json: |
-           {
-             "$schema" : "https://www.krakend.io/schema/krakend.json",
-             "version" : 3,
-             "name" : "gitgateway",
-             "port" : 9098,
-             "timeout" : "3000ms",
-             "cache_ttl" : "300s",
-             "debug_endpoint" : false,
-             "echo_endpoint" : false,
-             "endpoints" : [ {
-               "endpoint" : "/keycloak-protected",
-               "backend" : [ {
-                 "host" : [ "http://localhost:8083" ],
-                 "url_pattern" : "/__health"
-               } ],
-               "extra_config" : { }
-             } ],
-             "extra_config" : { }
+           {
+
+             "$schema" : "https://www.krakend.io/schema/krakend.json",
+
+             "version" : 3,
+
+             "name" : "gitgateway",
+
+             "port" : 8080,
+
+             "timeout" : "3000ms",
+
+             "cache_ttl" : "300s",
+
+             "debug_endpoint" : false,
+
+             "echo_endpoint" : false,
+
+             "endpoints" : [ {
+
+               "endpoint" : "/keycloak-protected",
+
+               "backend" : [ {
+
+                 "host" : [ "http://localhost:8083" ],
+
+                 "url_pattern" : "/__health"
+
+               } ],
+
+               "extra_config" : { }
+
+             } ],
+
+             "extra_config" : { }
+
            }
