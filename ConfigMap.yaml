@@ -8,113 +8,14 @@ data:
            {
              "$schema" : "https://www.krakend.io/schema/krakend.json",
              "version" : 3,
-             "name" : "MGWT2",
-             "port" : 9098,
+             "name" : "MassilGW",
+             "port" : 8080,
              "host" : [ "localhost" ],
              "timeout" : "3000ms",
              "cache_ttl" : "300s",
              "debug_endpoint" : false,
+             "echo_endpoint" : false,
              "endpoints" : [ {
-               "endpoint" : "/merge",
-               "backend" : [ {
-                 "host" : [ "https://jsonplaceholder.typicode.com" ],
-                 "url_pattern" : "/posts/1",
-                 "is_collection" : false,
-                 "method" : "GET"
-               }, {
-                 "host" : [ "https://api.nationalize.io/" ],
-                 "url_pattern" : "/",
-                 "allow" : [ "" ],
-                 "mapping" : { },
-                 "group" : "",
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "deny" : [ "" ],
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET",
-               "input_query_strings" : [ "name" ]
-             }, {
-               "endpoint" : "/SK1",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev" ],
-                 "url_pattern" : "/objects",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "encoding" : "json",
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "POST",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "POST"
-             }, {
-               "endpoint" : "/SK2",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev" ],
-                 "url_pattern" : "/objects",
-                 "mapping" : { },
-                 "is_collection" : true,
-                 "encoding" : "json",
-                 "extra_config" : {
-                   "qos/ratelimit/proxy" : {
-                     "max_rate" : 3,
-                     "capacity" : 3,
-                     "every" : "1m"
-                   },
-                   "modifier/response-body-generator" : {
-                     "template" : "{\n  \"data\": {{ toJson .resp_body }},\n  \"status_code\": {{ toJson .resp_status }},\n  \"headers\": {{ toJson .resp_headers }},\n}\n"
-                   },
-                   "proxy" : {
-                     "flatmap_filter" : [ {
-                       "type" : "move",
-                       "args" : [ "collection.*.data", "collection.*.newdata" ]
-                     } ]
-                   }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/testpathparamvald/{id}",
-               "backend" : [ {
-                 "host" : [ "https://jsonplaceholder.typicode.com" ],
-                 "url_pattern" : "/posts/{id}",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { },
-                   "security/policies" : {
-                     "req" : {
-                       "policies" : [ "req_params.id.matches('^[0-9]+$')" ],
-                       "error" : {
-                         "body" : "id must be Integer",
-                         "status" : 400,
-                         "content_type" : "application/json"
-                       }
-                     },
-                     "jwt" : {
-                       "policies" : [ "" ]
-                     },
-                     "resp" : {
-                       "policies" : [ "" ]
-                     }
-                   }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
                "endpoint" : "/jmespath",
                "backend" : [ {
                  "host" : [ "https://api.nationalize.io/" ],
@@ -126,90 +27,6 @@ data:
                "extra_config" : { },
                "method" : "GET",
                "input_query_strings" : [ "name" ]
-             }, {
-               "endpoint" : "/flatmap",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/7",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : {
-                     "flatmap_filter" : [ {
-                       "type" : "move",
-                       "args" : [ "data.year", "year" ]
-                     } ]
-                   }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/denyallow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/7",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "deny" : [ "data" ],
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/allow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/8",
-                 "allow" : [ "data" ],
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/target",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/7",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/endpointratelimiting",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev" ],
-                 "url_pattern" : "/objects",
-                 "is_collection" : true,
-                 "encoding" : "json",
-                 "method" : "GET"
-               } ],
-               "extra_config" : {
-                 "qos/ratelimit/router" : {
-                   "max_rate" : 5,
-                   "every" : "1m",
-                   "strategy" : "ip"
-                 }
-               },
-               "method" : "GET"
              } ],
              "extra_config" : { }
            }
