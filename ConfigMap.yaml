@@ -5,65 +5,126 @@ metadata:
   namespace: krakend-namespace
 data:
   krakend.json: |
-           {
-             "$schema" : "https://www.krakend.io/schema/krakend.json",
-             "version" : 3,
-             "name" : "MassilGW",
-             "port" : 8080,
-             "host" : [ "localhost" ],
-             "timeout" : "3000ms",
-             "cache_ttl" : "300s",
-             "debug_endpoint" : false,
-             "echo_endpoint" : false,
-             "endpoints" : [ {
-               "endpoint" : "/endpointratelimiting",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev" ],
-                 "url_pattern" : "/objects",
-                 "is_collection" : true,
-                 "encoding" : "json",
-                 "method" : "GET"
-               } ],
-               "extra_config" : {
-                 "qos/ratelimit/router" : {
-                   "max_rate" : 10,
-                   "every" : "1m",
-                   "strategy" : "ip"
-                 }
-               },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/denyallow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/7",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "deny" : [ "data" ],
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/allow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/8",
-                 "allow" : [ "data" ],
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             } ],
-             "extra_config" : { }
+           {
+
+             "$schema" : "https://www.krakend.io/schema/krakend.json",
+
+             "version" : 3,
+
+             "name" : "MassilGW",
+
+             "port" : 8080,
+
+             "host" : [ "localhost" ],
+
+             "timeout" : "3000ms",
+
+             "cache_ttl" : "300s",
+
+             "debug_endpoint" : false,
+
+             "echo_endpoint" : false,
+
+             "endpoints" : [ {
+
+               "endpoint" : "/endpointratelimiting",
+
+               "backend" : [ {
+
+                 "host" : [ "https://api.restful-api.dev" ],
+
+                 "url_pattern" : "/objects",
+
+                 "is_collection" : true,
+
+                 "encoding" : "json",
+
+                 "method" : "GET"
+
+               } ],
+
+               "extra_config" : {
+
+                 "qos/ratelimit/router" : {
+
+                   "max_rate" : 10,
+
+                   "every" : "1m",
+
+                   "strategy" : "ip"
+
+                 }
+
+               },
+
+               "method" : "GET"
+
+             }, {
+
+               "endpoint" : "/denyallow",
+
+               "backend" : [ {
+
+                 "host" : [ "https://api.restful-api.dev/" ],
+
+                 "url_pattern" : "/objects/7",
+
+                 "mapping" : { },
+
+                 "is_collection" : false,
+
+                 "extra_config" : {
+
+                   "proxy" : { }
+
+                 },
+
+                 "method" : "GET",
+
+                 "deny" : [ "data" ],
+
+                 "disable_host_sanitize" : true
+
+               } ],
+
+               "extra_config" : { },
+
+               "method" : "GET"
+
+             }, {
+
+               "endpoint" : "/allow1",
+
+               "backend" : [ {
+
+                 "host" : [ "https://api.restful-api.dev/" ],
+
+                 "url_pattern" : "/objects/8",
+
+                 "allow" : [ "data" ],
+
+                 "mapping" : { },
+
+                 "is_collection" : false,
+
+                 "extra_config" : {
+
+                   "proxy" : { }
+
+                 },
+
+                 "method" : "GET",
+
+                 "disable_host_sanitize" : true
+
+               } ],
+
+               "extra_config" : { },
+
+               "method" : "GET"
+
+             } ],
+
+             "extra_config" : { }
+
            }
