@@ -297,7 +297,7 @@ data:
 
              }, {
 
-               "endpoint" : "/target",
+               "endpoint" : "/target1",
 
                "backend" : [ {
 
