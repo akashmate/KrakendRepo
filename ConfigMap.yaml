@@ -10,7 +10,7 @@ data:
       "$schema": "https://www.krakend.io/schema/krakend.json",
       "version": 3,
       "name": "APIGateway",
-      "timeout": "3000ms",
+      "timeout": "10000ms",
       "cache_ttl": "300s",
       "port": 8080,
       "endpoints": [
