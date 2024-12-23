@@ -8,7 +8,7 @@ data:
            {
              "$schema" : "https://www.krakend.io/schema/krakend.json",
              "version" : 3,
-             "name" : "MassilGW",
+             "name" : "KrakendEnterpriseGW",
              "port" : 8080,
              "host" : [ "localhost" ],
              "timeout" : "3000ms",
@@ -31,38 +31,6 @@ data:
                "extra_config" : { },
                "method" : "GET",
                "input_query_strings" : [ "name" ]
-             }, {
-               "endpoint" : "/denyallow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/7",
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "deny" : [ "data" ],
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
-               "endpoint" : "/allow",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev/" ],
-                 "url_pattern" : "/objects/8",
-                 "allow" : [ "data" ],
-                 "mapping" : { },
-                 "is_collection" : false,
-                 "extra_config" : {
-                   "proxy" : { }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
              } ],
              "extra_config" : { }
            }
