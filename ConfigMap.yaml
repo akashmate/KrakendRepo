@@ -20,7 +20,7 @@ data:
           "output_encoding": "json",
           "backend": [
             {
-              "url_pattern": "/posts/1",
+              "url_pattern": "/post/1",
               "host": [
                 "https://jsonplaceholder.typicode.com/"
               ]
