@@ -61,7 +61,7 @@ data:
 
              }, {
 
-               "endpoint" : "/denyallow1",
+               "endpoint" : "/denyallow",
 
                "backend" : [ {
 
