@@ -84,18 +84,6 @@ data:
                "extra_config" : { },
                "method" : "GET"
              }, {
-               "endpoint" : "/jmespath",
-               "backend" : [ {
-                 "host" : [ "https://api.nationalize.io/" ],
-                 "url_pattern" : "/",
-                 "extra_config" : { },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET",
-               "input_query_strings" : [ "name" ]
-             }, {
                "endpoint" : "/testpathparamvald/{id}",
                "backend" : [ {
                  "host" : [ "https://jsonplaceholder.typicode.com" ],
@@ -126,6 +114,18 @@ data:
                } ],
                "extra_config" : { },
                "method" : "GET"
+             }, {
+               "endpoint" : "/jmespath",
+               "backend" : [ {
+                 "host" : [ "https://api.nationalize.io/" ],
+                 "url_pattern" : "/",
+                 "extra_config" : { },
+                 "method" : "GET",
+                 "disable_host_sanitize" : true
+               } ],
+               "extra_config" : { },
+               "method" : "GET",
+               "input_query_strings" : [ "name" ]
              }, {
                "endpoint" : "/flatmap",
                "backend" : [ {
