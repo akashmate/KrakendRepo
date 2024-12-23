@@ -20,7 +20,11 @@ data:
                "backend" : [ {
                  "host" : [ "https://api.nationalize.io/" ],
                  "url_pattern" : "/",
-                 "extra_config" : { },
+                 "extra_config" : {
+                   "modifier/jmespath" : {
+                     "expr" : "country[?probability > `0.0` ].country_id"
+                   }
+                 },
                  "method" : "GET",
                  "disable_host_sanitize" : true
                } ],
