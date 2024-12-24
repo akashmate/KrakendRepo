@@ -133,21 +133,6 @@ data:
                "extra_config" : { },
                "method" : "GET"
              }, {
-               "endpoint" : "/requestschemavalidation",
-               "backend" : [ {
-                 "host" : [ "http://localhost:8090" ],
-                 "url_pattern" : "/__health",
-                 "extra_config" : {
-                   "modifier/body-generator" : {
-                     "template" : "{\n                  \"type\": \"object\",\n                  \"required\": [\"number\", \"street_name\", \"street_type\"],\n                  \"properties\": {\n                    \"number\":      { \"type\": \"number\" },\n                    \"street_name\": { \"type\": \"string\" },\n                    \"street_type\": { \"type\": \"string\"   }\n                  }\n                }"
-                   }
-                 },
-                 "method" : "GET",
-                 "disable_host_sanitize" : true
-               } ],
-               "extra_config" : { },
-               "method" : "GET"
-             }, {
                "endpoint" : "/flatmap",
                "backend" : [ {
                  "host" : [ "https://api.restful-api.dev/" ],
@@ -182,6 +167,21 @@ data:
                } ],
                "extra_config" : { },
                "method" : "GET"
+             }, {
+               "endpoint" : "/requestschemavalidation",
+               "backend" : [ {
+                 "host" : [ "https://localhost:8090" ],
+                 "url_pattern" : "/__health",
+                 "extra_config" : {
+                   "modifier/body-generator" : {
+                     "template" : "{\n                  \"type\": \"object\",\n                  \"required\": [\"number\", \"street_name\", \"street_type\"],\n                  \"properties\": {\n                    \"number\":      { \"type\": \"number\" },\n                    \"street_name\": { \"type\": \"string\" },\n                    \"street_type\": { \"type\": \"string\"   }\n                  }\n                }"
+                   }
+                 },
+                 "method" : "GET",
+                 "disable_host_sanitize" : true
+               } ],
+               "extra_config" : { },
+               "method" : "POST"
              } ],
              "extra_config" : { }
            }
