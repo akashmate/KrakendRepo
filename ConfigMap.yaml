@@ -177,7 +177,7 @@ data:
                      "template" : "{\n                  \"type\": \"object\",\n                  \"required\": [\"number\", \"street_name\", \"street_type\"],\n                  \"properties\": {\n                    \"number\":      { \"type\": \"number\" },\n                    \"street_name\": { \"type\": \"string\" },\n                    \"street_type\": { \"type\": \"string\"   }\n                  }\n                }"
                    }
                  },
-                 "method" : "POST",
+                 "method" : "GET",
                  "disable_host_sanitize" : true
                } ],
                "extra_config" : { },
