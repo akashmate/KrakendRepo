@@ -170,7 +170,7 @@ data:
              }, {
                "endpoint" : "/requestschemavalidation",
                "backend" : [ {
-                 "host" : [ "https://localhost:8090" ],
+                 "host" : [ "http://localhost:9098" ],
                  "url_pattern" : "/__health",
                  "extra_config" : {
                    "modifier/body-generator" : {
