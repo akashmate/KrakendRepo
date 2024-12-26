@@ -191,7 +191,7 @@ data:
                  "encoding" : "json",
                  "extra_config" : {
                    "modifier/jmespath" : {
-                     "expr" : "collection[?capacity < `100`].[name]"
+                     "expr" : "collection[*].[name]"
                    }
                  },
                  "method" : "GET",
