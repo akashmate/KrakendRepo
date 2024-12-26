@@ -205,6 +205,22 @@ data:
                  }
                },
                "method" : "GET"
+             }, {
+               "endpoint" : "/allow",
+               "backend" : [ {
+                 "host" : [ "https://api.restful-api.dev/" ],
+                 "url_pattern" : "/objects/8",
+                 "allow" : [ "data" ],
+                 "mapping" : { },
+                 "is_collection" : false,
+                 "extra_config" : {
+                   "proxy" : { }
+                 },
+                 "method" : "GET",
+                 "disable_host_sanitize" : true
+               } ],
+               "extra_config" : { },
+               "method" : "GET"
              } ],
              "extra_config" : { }
            }
