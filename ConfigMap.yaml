@@ -133,6 +133,23 @@ data:
                "extra_config" : { },
                "method" : "GET"
              }, {
+               "endpoint" : "/endpointratelimiting",
+               "backend" : [ {
+                 "host" : [ "https://api.restful-api.dev" ],
+                 "url_pattern" : "/objects",
+                 "is_collection" : true,
+                 "encoding" : "json",
+                 "method" : "GET"
+               } ],
+               "extra_config" : {
+                 "qos/ratelimit/router" : {
+                   "max_rate" : 10,
+                   "every" : "1m",
+                   "strategy" : "ip"
+                 }
+               },
+               "method" : "GET"
+             }, {
                "endpoint" : "/flatmap",
                "backend" : [ {
                  "host" : [ "https://api.restful-api.dev/" ],
@@ -182,23 +199,6 @@ data:
                } ],
                "extra_config" : { },
                "method" : "POST"
-             }, {
-               "endpoint" : "/endpointratelimiting",
-               "backend" : [ {
-                 "host" : [ "https://api.restful-api.dev" ],
-                 "url_pattern" : "/objects",
-                 "is_collection" : true,
-                 "encoding" : "json",
-                 "method" : "GET"
-               } ],
-               "extra_config" : {
-                 "qos/ratelimit/router" : {
-                   "max_rate" : 10,
-                   "every" : "1m",
-                   "strategy" : "ip"
-                 }
-               },
-               "method" : "GET"
              } ],
              "extra_config" : { }
            }
