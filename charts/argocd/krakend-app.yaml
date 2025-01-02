@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: krakend-app
+  namespace: argocd
+spec:
+  source:
+    repoURL: 'https://github.com/akashmate/KrakendRepo.git'
+    targetRevision: HEAD
+    path: charts/krakend
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: krakend-namespace
+  project: default
