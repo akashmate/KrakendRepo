@@ -1,27 +1,25 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: krakend
-  namespace: krakend-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app: krakend
 spec:
-  replicas: 2
-  revisionHistoryLimit: 3
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: krakend
   template:
     metadata:
       annotations:
-        configmap.reloader.stakater.com/reload: krakend-demo-config
+        configmap.reloader.stakater.com/reload: krakend-config
       labels:
         app: krakend
     spec:
       containers:
         - name: krakend-container
-          image: krakend/krakend-ee:watch
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 8080
           args:
