@@ -28,7 +28,7 @@ data:
           ]
         },
         {
-          "endpoint": "/SK1",
+          "endpoint": "/SK",
           "method": "POST",
           "backend": [
             {
