@@ -15,7 +15,7 @@ data:
       "port": 8080,
       "endpoints": [
         {
-          "endpoint": "/api/posts",
+          "endpoint": "/api/posts1",
           "method": "GET",
           "output_encoding": "json",
           "backend": [
