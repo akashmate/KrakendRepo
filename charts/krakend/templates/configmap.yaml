@@ -2,8 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: krakend-config
-  namespace:
-    "{ .Values.namespace }": null
+  namespace: {{ .Values.namespace }}
 data:
   krakend.json: |
-    {{ .Values.config.krakend | indent 4 }}
+{{ .Values.config.krakend | indent 4 }}
