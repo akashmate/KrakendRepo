@@ -37,6 +37,8 @@ spec:
             - name: krakend-license
               mountPath: /etc/krakend/config/LICENSE
               subPath: LICENSE
+      imagePullSecrets:
+        - name: harborcred
       volumes:
         - name: krakend-config
           configMap:
