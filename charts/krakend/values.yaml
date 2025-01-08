@@ -1,7 +1,7 @@
 namespace: krakend-namespace
 replicas: 2
 image:
-  repository: krakend/krakend-ee
+  repository: harbor.massiltech.com/krakendproject/krakend-ee
   tag: watch
 service:
   type: NodePort
