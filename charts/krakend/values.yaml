@@ -2,7 +2,7 @@ namespace: krakend-namespace
 replicas: 2
 image:
   repository: harbor.massiltech.com/krakendproject/krakend-ee
-  tag: watch
+  tag: latest
 service:
   type: NodePort
   port: 8080
